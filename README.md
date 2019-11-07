@@ -36,4 +36,4 @@ docker run -it -v <Your local folder>:<Container folder> -p <Your local IP>:<Por
 ```
 ssh root@<Your local IP> -p <Port>
 ```
-Please use root as the login name and the password is "huobi" (quotation mark is not included)
+Please use root as the login name and the password is "password" (quotation mark is not included)
