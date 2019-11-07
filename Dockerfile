@@ -23,14 +23,14 @@ RUN yum install -y centos-release-scl && \
     
 # Install CMake v3.14.7
 RUN cd /usr &&\
-    curl -O https://cmake.org/files/v3.14/cmake-3.14.7-Linux-x86_64.sh && \
+    wget https://cmake.org/files/v3.14/cmake-3.14.7-Linux-x86_64.sh && \
     sh /usr/cmake-3.14.7-Linux-x86_64.sh --skip-license &&\
     rm -f /usr/cmake-3.14.7-Linux-x86_64.sh
 ENV PATH=$PATH:/bin/:/usr/bin/
 
 # Install Boost v1.71.0
 RUN wget https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz && \
-    tar -xzvf boost_1_71_0.tar.gz && rm -f tar -xzvf boost_1_71_0.tar.gz && \
+    tar -xzvf boost_1_71_0.tar.gz && rm -f boost_1_71_0.tar.gz && \
     scl enable devtoolset-8 bash && \
     cd boost_1_71_0 && \
     sh bootstrap.sh && \
