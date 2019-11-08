@@ -30,22 +30,23 @@ ENV PATH=$PATH:/bin/:/usr/bin/
 
 # Install Boost v1.71.0
 RUN wget https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz && \
+    cd /root && \
     tar -xzvf boost_1_71_0.tar.gz && rm -f boost_1_71_0.tar.gz
-#    scl enable devtoolset-8 bash && \
-#    cd boost_1_71_0 && \
-#    sh bootstrap.sh && \
-#    ./b2 install --build-dir=/tmp/build-boost && \
-#    rm -rf /tmp/build-boost
+    scl enable devtoolset-8 bash && \
+    cd boost_1_71_0 && \
+    sh bootstrap.sh && \
+    ./b2 install --build-dir=/tmp/build-boost && \
+    rm -rf /tmp/build-boost
 
 # Install gtest
 RUN scl enable devtoolset-8 bash && \
-    git clone --branch release-1.10.0 https://github.com/google/googletest.git /root/googletest-1.10.0
-#    cd /root/googletest-1.10.0 && \
-#    mkdir build && \
-#    cd build && \
-#    cmake .. && \
-#    make && make install && \
-#    cd .. && rm -rf build
+    git clone --branch release-1.10.0 https://github.com/google/googletest.git /root/googletest-1.10.0 && \
+    cd /root/googletest-1.10.0 && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make && make install && \
+    cd .. && rm -rf build
     
 WORKDIR /root
 COPY run.sh /usr/local/bin/run.sh
