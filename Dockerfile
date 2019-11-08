@@ -29,9 +29,9 @@ RUN cd /usr &&\
 ENV PATH=$PATH:/bin/:/usr/bin/
 
 # Install Boost v1.71.0
-RUN wget https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz && \
-    cd /root && \
-    tar -xzvf boost_1_71_0.tar.gz && rm -f boost_1_71_0.tar.gz
+RUN cd /root && \
+    wget https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_0.tar.gz && \
+    tar -xzvf boost_1_71_0.tar.gz && rm -f boost_1_71_0.tar.gz && \
     scl enable devtoolset-8 bash && \
     cd boost_1_71_0 && \
     sh bootstrap.sh && \
